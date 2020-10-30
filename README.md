@@ -20,8 +20,9 @@ I will be creating a Kansas City running community web page
     - swap meet
         - the swap meet is where people will be able to post items to be sold in the running community
         - similar to a craiglist add it will get more of a focus on to running gear for the running community
+![ERP-Layout](Images/ERP-Layout.jpg)
 
-**User stories**
+- **User stories**
 - As a runner in kansas city, we always see the running trails full of people, but almost always see people running alone. The practice schedule will give people an opportunity to find times to run with others in the community and find a new running partner
 
 - It can be hard to get started running in a new place. The tips and forums section will help a person get started. Finding a good place to run or a solid stretch to do to losen up before their activity.
