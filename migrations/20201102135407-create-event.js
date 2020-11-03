@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("Users", {
+    await queryInterface.createTable("Event", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,12 +12,24 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
-      username: {
-        type: Sequelize.STRING,
+      date: {
+        type: Sequelize.DATE,
         unique: null,
       },
-      password: {
+      location: {
         type: Sequelize.STRING,
+      },
+      workout: {
+        type: Sequelize.STRING,
+      },
+      runners: {
+        type: Sequelize.INTEGER,
+      },
+      rating: {
+        type: Sequelize.INTEGER,
+      },
+      userId:{
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -31,7 +43,13 @@ module.exports = {
       },
     });
   },
+
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("Users");
-  },
+    /**
+     * Add reverting commands here.
+     *
+     * Example:
+     * await queryInterface.dropTable('users');
+     */
+  }
 };

@@ -1,37 +1,33 @@
-"use strict";
+'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("Users", {
+    await queryInterface.createTable("Comment", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
+      text: {
         type: Sequelize.STRING,
       },
-      username: {
-        type: Sequelize.STRING,
-        unique: null,
-      },
-      password: {
-        type: Sequelize.STRING,
-      },
-      createdAt: {
+      createdDate: {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: new Date(),
       },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: new Date(),
+      userId: {
+        type: Sequelize.INTEGER,
       },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("Users");
-  },
+    /**
+     * Add reverting commands here.
+     *
+     * Example:
+     * await queryInterface.dropTable('users');
+     */
+  }
 };

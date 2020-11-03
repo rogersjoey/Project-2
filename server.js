@@ -1,9 +1,12 @@
-require("dotenv").config();
+require('dotenv').config()
 const express = require("express");
 const app = express();
 const methodOverride = require("method-override");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
+
 
 // make change
 
@@ -31,11 +34,11 @@ app.use(express.static("public"));
 
 // HOMEPAGE
 app.get("/", (req, res) => {
-  res.render("users/index.ejs");
+  res.render("users/RUNKC/home.ejs");
 });
 
 app.use("/auth", require("./controllers/authController.js"));
-app.use("/users", verifyToken, require("./controllers/usersController.js"));
+app.use("/RUNKC", verifyToken, require("./controllers/RUNKCController.js"));
 
 app.listen(process.env.PORT, () => {
   console.log("Nodemon listening");

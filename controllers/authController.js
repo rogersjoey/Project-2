@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken");
 
 const UserModel = require("../models").User;
 
+let token;
+
 // SIGN OUT ROUTE
 router.get("/logout", (req, res) => {
   res.clearCookie("jwt");
@@ -40,7 +42,7 @@ router.post("/signup", (req, res) => {
           );
           console.log(token);
           res.cookie("jwt", token); // SEND A NEW COOKIE TO THE BROWSER TO STORE TOKEN
-          res.redirect(`/users/profile/${newUser.id}`);
+          res.redirect(`/`);
         })
         .catch((err) => {
           console.log(err);
@@ -65,7 +67,7 @@ router.post("/login", (req, res) => {
     if (foundUser) {
       bcrypt.compare(req.body.password, foundUser.password, (err, match) => {
         if (match) {
-          const token = jwt.sign(
+          token = jwt.sign(
             {
               username: foundUser.username,
               id: foundUser.id,
@@ -77,7 +79,8 @@ router.post("/login", (req, res) => {
           );
           console.log(token);
           res.cookie("jwt", token); // SEND A NEW COOKIE TO THE BROWSER TO STORE TOKEN
-          res.redirect(`/users/profile/${foundUser.id}`);
+          // console.log(cookie.jwt)
+          res.redirect(`/`);
         } else {
           return res.sendStatus(400);
         }
@@ -85,5 +88,6 @@ router.post("/login", (req, res) => {
     }
   });
 });
+
 
 module.exports = router;
