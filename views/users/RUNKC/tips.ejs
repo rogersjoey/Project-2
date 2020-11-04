@@ -1,18 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project 2 Homepage</title>
+
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/practice.css">
+
+    <title>RUNKC</title>
   </head>
   <body>
-    <a href="/">HOME</a>
-    <h1>TIPS</h1>
-    <nav>
-      <a href="/practice">Practice</a>
-      <a href="/tips">Tips</a>
-      <a href="/yardsale">Yardsale</a>
-      <a href="/profile">Profile</a>
-    </nav>
+    <header>
+  <!-- Fixed navbar -->
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+          <a href="/" class="navbar-brand d-flex align-items-center">
+            <strong>Home</strong>
+          </a>
+          <a href="/auth/login" class="navbar-brand d-flex align-items-center">
+            <strong>Log In</strong>
+          </a>
+          <a href="/auth/signup" class="navbar-brand d-flex align-items-center">
+            <strong>Sign Up</strong>
+          </a>
+          <a href="/RUNKC/practice" class="navbar-brand d-flex align-items-center">
+            <strong>Practices</strong>
+          </a>
+          <a href="/RUNKC/tips" class="navbar-brand d-flex align-items-center">
+            <strong>Tips</strong>
+          </a>
+          <a href="/RUNKC/yardsale" class="navbar-brand d-flex align-items-center">
+            <strong>For Sale</strong>
+          </a>
+        </div>
+      </div>
+    </header>
+
+<main role="main">
+
+  <section class = "KC">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1>TIPS</h1>
+        <p class="lead text-muted"> but not too short so folks don’t simply skip over it entirely.</p>
+        <div>
+          <a href="/auth/signup" class="btn btn-primary my-2">Submit A Tip</a>
+        </div>
+      </div>
+    </section>
+  </section>
+
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <ul >
+        <% for(let i=0; i<tips.length; i++) { %>
+        <li>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img src='<%=tips[i].img %>'class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"/>
+                <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" background=url()/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg> -->
+                <div class="card-body">
+                  <p class="card-text"><%=tips[i].tip %></p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted"><%=tips[i].info %></small>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Like</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Comment</button>
+                    </div>
+                  </div>
+                </br>
+                </div>
+              </div>
+            </div>
+        </li>
+      <% } %>
+      </ul>
+    </div>
+  </div>
+</main>
+
   </body>
 </html>

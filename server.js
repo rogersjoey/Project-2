@@ -30,7 +30,7 @@ const verifyToken = (req, res, next) => {
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
 // HOMEPAGE
 app.get("/", (req, res) => {

@@ -1,22 +1,39 @@
 const cookieParser = require("cookie-parser");
 const express = require("express");
 const { TokenExpiredError } = require("jsonwebtoken");
-// const { noExtendLeft } = require("sequelize/types/lib/operators");
 const router = express.Router();
 
+const Event = require('../models').Event;
 const UserModel = require("../models").User;
+const Tips = require("../models").Tip;
+const Sale = require("../models").Sale;
+
+
 
 // GET USERS PROFILE
 router.get("/practice", (req, res) => {
-    res.render(`users/RUNKC/practice.ejs`);
+  Event.findAll().then((event) => {
+    console.log(event);
+    res.render(`users/RUNKC/practice.ejs`,{
+      event:event,
+    });
   });
+});
 
 router.get("/tips", (req, res) => {
-  res.render(`users/RUNKC/tips.ejs`);
+  Tips.findAll().then((tips) => {
+    res.render(`users/RUNKC/tips.ejs`,{
+      tips:tips,
+    });
+  });
 });
 
 router.get("/yardsale", (req, res) => {
-  res.render(`users/RUNKC/yardsale.ejs`);
+  Sale.findAll().then((sale) => {
+    res.render(`users/RUNKC/yardsale.ejs`,{
+      sale:sale,
+    });
+  });
 });
 
 router.get("/profile", (req, res) => {

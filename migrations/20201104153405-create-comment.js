@@ -1,22 +1,24 @@
-"use strict";
+'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("Users", {
+    await queryInterface.createTable('Comments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING,
+      text: {
+        type: Sequelize.STRING
       },
-      username: {
-        type: Sequelize.STRING,
-        unique: null,
+      pageId: {
+        type: Sequelize.INTEGER
       },
-      password: {
-        type: Sequelize.STRING,
+      postId: {
+        type: Sequelize.INTEGER
+      },
+      userId: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -27,10 +29,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: new Date(),
-      },
+      }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("Users");
-  },
+    await queryInterface.dropTable('Comments');
+  }
 };
