@@ -8,18 +8,24 @@
     <!-- bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-    <!-- Custom styles for this template -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="/home.css">
 
     <title>RUNKC</title>
   </head>
   <body>
-        <header>
+    <header>
   <!-- Fixed navbar -->
       <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between">
           <a href="/" class="navbar-brand d-flex align-items-center">
             <strong>Home</strong>
+          </a>
+          <a href="/auth/login" class="navbar-brand d-flex align-items-center">
+            <strong>Log In</strong>
+          </a>
+          <a href="/auth/signup" class="navbar-brand d-flex align-items-center">
+            <strong>Sign Up</strong>
           </a>
           <a href="/RUNKC/practice" class="navbar-brand d-flex align-items-center">
             <strong>Practices</strong>
@@ -29,12 +35,6 @@
           </a>
           <a href="/RUNKC/yardsale" class="navbar-brand d-flex align-items-center">
             <strong>For Sale</strong>
-          </a>
-          <a href="/auth/login" class="navbar-brand d-flex align-items-center">
-            <strong>Log In</strong>
-          </a>
-          <a href="/auth/signup" class="navbar-brand d-flex align-items-center">
-            <strong>Sign Up</strong>
           </a>
         </div>
       </div>
@@ -46,7 +46,7 @@
     <section class="jumbotron text-center">
       <div class="container">
         <h1>RUNKC</h1>
-        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+        <p class="lead text-muted">RUNKC is Kansas City's top running club. Fast or slow, as long as you are on the go you will be a great fit! Stop by at one of our practices or check out some of the tips we post online.</p>
         <div>
           <a href="/auth/signup" class="btn btn-primary my-2">Join The Club</a>
         </div>
@@ -55,62 +55,51 @@
   </section>
 
   <div class="album py-5 bg-light">
-    <div class="container">
-      <ul >
-        <li>
-          <div class="row">
+    <div class="container-center">
+          <div class="row text-center">
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                <h1>Upcoming Practice</h1>
+                <img src='https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/group-of-young-women-running-in-city-setting-royalty-free-image-1594815627.jpg?crop=1.00xw:0.752xh;0,0.202xh&resize=1200:*'class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"/>
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text"><%=event.name%></p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      <button onclick= "/RUNKC/practice" type="button" class="btn btn-md btn-outline-secondary">View</button>
                     </div>
-                    <small class="text-muted">9 mins</small>
                   </div>
                 </div>
               </div>
             </div>
-        </li>
-        <li>
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h1>Tip of the Week</h1>
+                <img src='<%=tip.img%>' class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"/>                <div class="card-body">
+                  <p class="card-text"><%=tip.tip%></p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      <button type="button" class="btn btn-md btn-outline-secondary">View</button>
                     </div>
-                    <small class="text-muted">9 mins</small>
                   </div>
                 </div>
               </div>
             </div>
-        </li>
-        <li>
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h1>New Item For Sale!</h1>
+                <img src='<%=sale.img%>' class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"/>                <div class="card-body">
+                  <div class="card-body">
+                  <p class="card-text"><%=sale.item%></p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      <button type="button" class="btn btn-md btn-outline-secondary">View</button>
                     </div>
-                    <small class="text-muted">9 mins</small>
                   </div>
                 </div>
               </div>
             </div>
-        </li>
       </div>
       </ul>
     </div>

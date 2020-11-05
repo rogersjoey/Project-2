@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/practice.css">
+
+    <title>RUNKC</title>
+  </head>
+  <body>
+        <header>
+  <!-- Fixed navbar -->
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+          <a href="/" class="navbar-brand d-flex align-items-center">
+            <strong>Home</strong>
+          </a>
+          <a href="/RUNKC/practice" class="navbar-brand d-flex align-items-center">
+            <strong>Practices</strong>
+          </a>
+          <a href="/RUNKC/tips" class="navbar-brand d-flex align-items-center">
+            <strong>Tips</strong>
+          </a>
+          <a href="/RUNKC/yardsale" class="navbar-brand d-flex align-items-center">
+            <strong>For Sale</strong>
+          </a>
+          <a href="/auth/login" class="navbar-brand d-flex align-items-center">
+            <strong>Log In</strong>
+          </a>
+          <a href="/auth/signup" class="navbar-brand d-flex align-items-center">
+            <strong>Sign Up</strong>
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="starter-template">
+        <h1><%= sale.item %></h1>
+        <ul class="details">
+            <%= sale.img %>
+            <li ><%= sale.item %> </li>
+            <li >Price: <%= sale.price %> </li>
+            <li > <%= sale.descript %> </li>
+            <li >Posted On: <%= sale.createdAt %> </li>
+        </ul>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+    </div>
+</body>

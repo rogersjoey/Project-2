@@ -7,6 +7,11 @@ const cookieParser = require("cookie-parser");
 
 app.use(cookieParser());
 
+const Event = require('./models').Event;
+const UserModel = require('./models').User;
+const Tips = require('./models').Tip;
+const Sale = require('./models').Sale;
+
 
 // make change
 
@@ -34,7 +39,17 @@ app.use(express.static(__dirname + "/public"));
 
 // HOMEPAGE
 app.get("/", (req, res) => {
-  res.render("users/RUNKC/home.ejs");
+  Tips.findAll().then((tip) =>{
+    Event.findAll().then((event) =>{
+      Sale.findAll().then((sale) =>{
+        res.render("users/RUNKC/home.ejs",{
+          tip: tip[tip.length-1],
+          event: event[0],
+          sale: sale[sale.length-1]
+        });
+      });
+    });
+  });
 });
 
 app.use("/auth", require("./controllers/authController.js"));

@@ -19,8 +19,9 @@ router.get("/signup", (req, res) => {
   res.render("users/signup.ejs");
 });
 
-// POST - CREATE NEW USER FROM SIGNUP
+//POST - CREATE NEW USER FROM SIGNUP
 router.post("/signup", (req, res) => {
+  console.log('24');
   bcrypt.genSalt(10, (err, salt) => {
     if (err) return res.status(500).json(err);
 
