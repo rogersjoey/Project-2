@@ -40,26 +40,39 @@
       </div>
     </header>
     <body class="text-center">
-        <form action = '/auth/login' method="POST" class="form-signin">
-        <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" name="username" id="inputEmail" class="form-control" placeholder="User Name" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="text" name="password"id="inputPassword" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
-        </form>
-    </body>
     <div class="starter-template">
         <h1><%= event.name %></h1>
         <ul class="details">
             <li >Date: <%= event.date %> </li>
             <li >Location: <%= event.location %> </li>
             <li >Details: <%= event.workout %> </li>
-            <li >People Planning to go: <%= event.workout %> </li>
-            <li >Runners Rating: <%= event.workout %> </li>
+            <li >People Planning to go: <%= event.runners %> </li>
+            <li >Runners Rating: <%= event.rating %> </li>
         </ul>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+            <form class="form-signin" action = "/RUNKC/practiceView/<%=event.id%>?_method=PUT" method="POST">
+              <!-- Are you planning on attending?
+                Yes:
+                  <input type="checkbox" name="runners" value="<%=event.runners%>"
+                    <% if(event.runners === true){ %>
+                      checked
+                    <% } %>
+                  /> -->
+                <!-- No: 
+                  <input type="checkbox" name="runners"
+                    <% if(event.runners === 'null'){ %>
+                    <% } %>
+                  /> -->
+              <br>
+              How many in your group are attending: 
+                <input type="text" name="rating" value="<%=event.rating%>"/>
+                <!-- <input type="text" name="rating" value="<%=event.rating%>"/> -->
+              <br/>
+              <br>
+              <input type="submit" name="" value="Submit Changes"/>
+            </form>
+          <br>
+        <a href="/RUNKC/practice">
+          <button class="btn btn-lg btn-primary" type="submit">Return to Practices</button>
+        </a>
     </div>
-</body>
+</body> 

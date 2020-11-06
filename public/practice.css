@@ -95,6 +95,14 @@
       width: .25;
   }
 
-  .details{
-    
+  .card-text{
+    text-align: center;
+    font-size: large;
+  }
+
+  .container-center{
+    margin: 0;
+    left: 33%;
+    -ms-transform: translate(-0%, -0%);
+    transform: translate(-0%, -0%);
   }

@@ -44,7 +44,7 @@ app.get("/", (req, res) => {
       Sale.findAll().then((sale) =>{
         res.render("users/RUNKC/home.ejs",{
           tip: tip[tip.length-1],
-          event: event[0],
+          event: event[2],
           sale: sale[sale.length-1]
         });
       });

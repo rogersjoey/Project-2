@@ -7,7 +7,7 @@ module.exports = {
       [
         {
           userId:1,
-          name: "Halloweend Dash",
+          name: "Halloween Dash",
           date: 'October 31 2020 19:30',
           location: 'Nelson Atkins South Lawn',
           workout: "5k/10k Race",
@@ -56,7 +56,7 @@ module.exports = {
         },
         {
           userId:2,
-          name: "Cheifs Turkey Trot",
+          name: "Chiefs Turkey Trot",
           date: 'November 26 2020 7:30',
           location: 'Arrowhead Parking Lot',
           workout: "5k Race",

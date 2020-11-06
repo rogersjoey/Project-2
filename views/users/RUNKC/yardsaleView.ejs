@@ -39,15 +39,18 @@
         </div>
       </div>
     </header>
-    <div class="starter-template">
+    <div class="starter-template text-center">
         <h1><%= sale.item %></h1>
-        <ul class="details">
-            <%= sale.img %>
+        <img src="<%= sale.img %>" alt="<%= sale.item %>">
+        <ul class="details text-left">
             <li ><%= sale.item %> </li>
             <li >Price: <%= sale.price %> </li>
             <li > <%= sale.descript %> </li>
             <li >Posted On: <%= sale.createdAt %> </li>
         </ul>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <!-- <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p> -->
+        <a href="/RUNKC/yardsale">
+          <button class="btn btn-lg btn-primary" type="submit">See all items</button>
+        </a>
     </div>
 </body>

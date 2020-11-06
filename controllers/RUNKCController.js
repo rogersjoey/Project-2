@@ -1,7 +1,8 @@
-const cookieParser = require("cookie-parser");
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const { TokenExpiredError } = require("jsonwebtoken");
 const router = express.Router();
+router.use(cookieParser());
 
 const Event = require('../models').Event;
 const UserModel = require("../models").User;
@@ -11,7 +12,7 @@ const Sale = require("../models").Sale;
 // GET USERS PROFILE
 router.get("/practice", (req, res) => {
   Event.findAll().then((event) => {
-    console.log(event);
+    // console.log(event);
     res.render(`users/RUNKC/practice.ejs`,{
       event:event,
     });
@@ -19,8 +20,12 @@ router.get("/practice", (req, res) => {
 });
 
 router.get("/practice2", (req, res) => {
+  if (req.user.username === 'joey'){
     res.render(`users/RUNKC/practice2.ejs`,{
-  });
+    });
+  } else {
+    res.redirect("/RUNKC/practice");
+    };
 });
 
 router.get("/practiceView/:id", (req, res) => {
@@ -30,6 +35,17 @@ router.get("/practiceView/:id", (req, res) => {
     });
   });
 });
+
+router.put("/practiceView/:id", (req,res) => {
+  Event.update(req.body.runners, {
+    where: { id: req.params.id},
+  }).then((updatedEvent) => {
+      req.body.runners = req.body.runners + req.body.rating;
+      console.log(updatedEvent);
+      res.redirect("/RUNKC/practice");
+  });
+});
+
 
 router.post('/practice2',(req,res) => {
   // console.log(Event);
@@ -47,8 +63,12 @@ router.get("/tips", (req, res) => {
 });
 
 router.get("/tips2", (req, res) => {
+  if (req.user.username === 'joey'){
     res.render(`users/RUNKC/tips2.ejs`,{
-  });
+    });
+  } else {
+    res.redirect("/RUNKC/tips");
+    };
 });
 
 router.post('/tips2',(req,res) => {
@@ -75,6 +95,14 @@ router.post('/yardsale2',(req,res) => {
   // console.log(Tip);
   Sale.create(req.body).then((newSale) => {
     res.redirect("/RUNKC/yardsale");
+  });
+});
+
+router.get("/yardsaleView/:id", (req, res) => {
+  Sale.findByPk(req.params.id).then((sale) => {
+    res.render(`users/RUNKC/yardsaleView.ejs`,{
+      sale: sale
+    });
   });
 });
 

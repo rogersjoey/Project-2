@@ -21,10 +21,12 @@ module.exports = {
         type: Sequelize.STRING
       },
       runners: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       },
       rating: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 5
       },
       userId: {
         type: Sequelize.INTEGER
