@@ -106,6 +106,12 @@ router.get("/yardsaleView/:id", (req, res) => {
   });
 });
 
+router.delete("/yardsaleView/:id", (req, res) => {
+  Sale.destroy({ where: { id: req.params.id } }).then(() => {
+    res.redirect("/RUNKC/yardsale");
+  });
+});
+
 router.get("/profile", (req, res) => {
     const {cookies} = req;
     if (cookies.jwt != '') {
