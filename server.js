@@ -52,6 +52,11 @@ app.get("/", (req, res) => {
   });
 });
 
+function checkUserAuth(req, res, next) {
+  if (req.session.user) return next();
+  return next(new NotAuthorizedError());
+}
+
 app.use("/auth", require("./controllers/authController.js"));
 app.use("/RUNKC", verifyToken, require("./controllers/RUNKCController.js"));
 
